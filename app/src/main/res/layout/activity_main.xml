@@ -1,19 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:customviews="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.khanhhuy.myapplication.MainActivity">
+    >
+
+    <com.example.khanhhuy.myapplication.TimeView
+        android:id="@+id/timeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        custom:title="Time: "
+        custom:setColor="true"
+        />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_simple"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_below="@id/timeView"
+        android:layout_marginTop="@dimen/dp_10"
+        />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        xmlns:customviews="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_simple"
+        android:orientation="vertical"
+        android:weightSum="2"
+        >
+
+        <com.example.khanhhuy.myapplication.SimpleView
+            android:id="@+id/simpleViewCircle"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            customviews:shape="circle"
+            customviews:dim="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+
+        <com.example.khanhhuy.myapplication.SimpleView
+            android:id="@+id/simpleViewSquare"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            customviews:shape="square"
+            customviews:dim="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
